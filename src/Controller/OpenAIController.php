@@ -14,22 +14,14 @@ class OpenAIController extends AbstractController
     public function index(Request $request, OpenAiService $openAi,): Response
     {
 
-        $json = $openAi->getCommitExplaination("preserve dateTime sort", "-const commitSHAs = result.data.map(commit => commit.sha);
-        +const commitSHAs = result.data.map(commit => commit.sha).reverse();
-         
-         
-         
-        @@ -38,12 +38,14 @@ async function getCommitChanges(commitSHAs) {
-               repo: repo,
-               commit_sha: commitSHA
-             });
-        -
-        +    document.body.innerHTML += ");
-       
+        $prompt = " Colored middle ages engravinga of cute young cat drinking milk";
+        $image = $openAi->getImageGenerated($prompt);
+
 
         return $this->render('open_ai/index.html.twig', [
             'controller_name' => 'OpenAIController',
-            'json' => $json,
+            'image' => $image,
+            'prompt' => $prompt
         ]);
     }
 }
