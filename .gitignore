@@ -9,6 +9,9 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
+# all the png imgs
+*.png
+
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
